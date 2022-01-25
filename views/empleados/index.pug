@@ -1,0 +1,39 @@
+extends ../layout 
+
+block content
+  a(href='/empleados/create') Crear Empleado
+  table.table 
+    thead 
+      tr 
+        th(scope='col') #
+        th(scope='col') Cedula
+        th(scope='col') Nombre  
+        th(scope='col') Apellido  
+        th(scope='col') Cargo 
+        th(scope='col') Departamento
+        th(scope='col') Ingreso 
+        th(scope='col') Status
+        th(scope='col')
+        th(scope='col') 
+    tbody 
+      each emple in emples 
+        tr 
+          td(scope='row')
+            = emple.id 
+          td= emple.cedula
+          td= emple.nombre 
+          td= emple.apellido 
+          td= emple.cargo
+          td= emple.departamento
+          td= emple.ingreso 
+          td= emple.status
+          td
+            a(href= 'empleados/' + emple.id + '/update') Editar 
+          td 
+            form.inline(method='post' action='empleados/' + emple.id + '/delete')
+                input(type='hidden' name='id' value= emple.id)
+                button.link-button(type='submit' name='submit_param' value='submit_value' class='btn')
+                    = 'Eliminar' 
+
+
+

@@ -1,0 +1,41 @@
+extends ../layout
+
+block content 
+  a(href='/empleados') volver 
+
+  br
+  br
+  br
+
+  h1 Actualizar Empleado 
+
+  br
+  br
+
+  form(action=`/empleados/${emple.id}/update` method='post')
+    label(for='id') ID: 
+    input#id(type='text' name='id' value=emple.id)
+    br
+    label(for='cedula') Cedula: 
+    input#cedula(type='text' name='cedula' value=emple.cedula)
+    br 
+    label(for='nombre') Nombre: 
+    input#nombre(type='text' name='nombre' value=emple.nombre)
+    br
+    label(for='apellido') Apellido: 
+    input#apellido(type='text' name='apellido' value=emple.apellido)
+    br
+    label(for='cargo') Cargo: 
+    input#cargo(type='text' name='cargo' value=emple.cargo)
+    br
+    label(for='departamento') Departamento: 
+    input#departamento(type='text' name='departamento' value=emple.departamento)
+    br
+    label(for='ingreso') Ingreso: 
+    input#ingreso(type='text' name='ingreso' value=emple.ingreso)
+    br
+    label(for='status') Status: 
+    input#status(type='text' name='status' value=emple.status)
+    br
+    br
+    input.btn(type='submit' value='OK')       
