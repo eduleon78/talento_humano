@@ -1,5 +1,69 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  // Responsive navbar
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    .container.px-5
+      a.navbar-brand(href='#!') Concejo Municipal Mariño
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+          li.nav-item
+            a.nav-link.active(aria-current='page' href='#!') Inicio
+          li.nav-item
+            a.nav-link(href='#!') Acerda de
+          li.nav-item
+            a.nav-link(href='#!') Contacto
+          li.nav-item
+            a.nav-link(href='#!') RRHH 
+  // Page Content
+  .container.px-4.px-lg-5
+    // Heading Row
+    .row.gx-4.gx-lg-5.align-items-center.my-5
+      .col-lg-7
+        img.img-fluid.rounded.mb-4.mb-lg-0(src='/images/imagen.jpg' alt='...')
+      .col-lg-5
+        h1.font-weight-light Instalada directiva de la Cámara Municipal de Mariño!
+        p
+          | Con la presencia de los nueve concejales y el voto de la mayoría quedó instalada y juramentada la nueva directiva de la Cámara Municipal de Mariño. El acto se llevó a cabo este jueves en la mañana en el Concejo Municipal a la que asistieron ediles suplentes, algunos trabajadores y un grupo de habitantes de la ciudad de Porlamar!
+        a.btn.btn-primary(href='#!') Mas informacion!
+    // Call to Action
+    .card.text-white.bg-secondary.my-5.py-4.text-center
+      .card-body
+        p.text-white.m-0
+          | Si necesitas contactar con el departamento de talento humano, hazlo por el correo concejomunicipalmarinorrhh@gmail.com!
+    // Content Row
+    .row.gx-4.gx-lg-5
+      .col-md-4.mb-5
+        .card.h-100
+          .card-body
+            h2.card-title Normas de Bioseguridad 
+            p.card-text
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.
+          .card-footer
+            a.btn.btn-primary.btn-sm(href='#!') More Info
+      .col-md-4.mb-5
+        .card.h-100
+          .card-body
+            h2.card-title Inicio Periodo Legislativo 2022
+            p.card-text
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.
+          .card-footer
+            a.btn.btn-primary.btn-sm(href='#!') More Info
+      .col-md-4.mb-5
+        .card.h-100
+          .card-body
+            h2.card-title Actualiza tu expediente
+            p.card-text
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.
+          .card-footer
+            a.btn.btn-primary.btn-sm(href='#!') More Info
+  // Footer
+  footer.py-5.bg-dark
+    .container.px-4.px-lg-5
+      p.m-0.text-center.text-white Copyright &copy; leonStudios 2022
+  // Bootstrap core JS
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
+  // Core theme JS
+  script(src='/js/scripts.js')
