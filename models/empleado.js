@@ -35,10 +35,12 @@ Empleado.removeById = function(aEmpleId){
         }
     }
 }
+
+/* 
 var a = new Empleado(1, 14840089, 'Eduardo', 'leon', 'director', 'personal', 'diciembre 2021', 'activo' );
 var b = new Empleado(2, 21323925, 'Pedro', 'Perez','coodinador', 'seguridad', 'diciembre 2021', 'activo' );
 
 Empleado.add(a);
-Empleado.add(b);
+Empleado.add(b); */
 
 module.exports = Empleado;
