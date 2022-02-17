@@ -1,8 +1,13 @@
-extends ../layout 
+extends ../layout
 
 block content
-  a(href='/empleados/create') Crear Empleado
-  table.table 
+  a(href='/empleados/create' type='button' class='btn btn-primary btn-md' style='text-align:center') Registrar Empleado
+  br
+  br
+  a(href='/rrhh' type='button' class='btn btn-secondary btn-md' style='text-align:center') Inicio 
+  br
+  br
+  table.table.table-striped.table-hover  
     thead 
       tr 
         th(scope='col') #
@@ -19,7 +24,7 @@ block content
       each emple in emples 
         tr 
           td(scope='row')
-            = emple.id 
+            = emple.id   
           td= emple.cedula
           td= emple.nombre 
           td= emple.apellido 
@@ -28,12 +33,12 @@ block content
           td= emple.ingreso 
           td= emple.status
           td
-            a(href= 'empleados/' + emple.id + '/update') Editar 
+            a(href='empleados/' + emple.id + '/update') Editar 
           td 
             form.inline(method='post' action='empleados/' + emple.id + '/delete')
                 input(type='hidden' name='id' value= emple.id)
-                button.link-button(type='submit' name='submit_param' value='submit_value' class='btn')
-                    = 'Eliminar' 
+                button.link-button.btn-danger(type='submit' name='submit_param' value='submit_value' class='btn')
+                    = 'Eliminar'
 
 
 

@@ -9,6 +9,4 @@ router.get('/:id/update', empleadoController.empleado_update_get);
 router.post('/:id/update', empleadoController.empleado_update_post);
 router.post('/:id/delete', empleadoController.empleado_delete_post);
 
-
-
 module.exports = router;

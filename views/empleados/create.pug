@@ -1,41 +1,59 @@
-extends ../layout
+link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet')
+script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js')
 
-block content 
-  a(href='/empleados') volver 
+head
+  link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet')
+  script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  link(rel='stylesheet', href='../../css/resetpassword.css')
+  meta(name='google-site-verification' content='pxOa2Qv7Wq0cQ78SbERxoOVDxJ-XbKHZL8rvLmki3xs')
 
-  br
-  br
-  br
+body#LoginForm
+  .container.d-flex.justify-content-center.align-items-center.vh-100
+    .bg-white.text-center.p-5.mt-3.center
+      .container
+        .login-form
+          .main-div
+            .panel
 
-  h1 Nuevo Empleado 
+          block content 
+            a(href='/empleados') volver 
 
-  br
-  br
+            br
+            br
+            br
 
-  form(action='/empleados/create' method='post')
-    label(for='id') ID: 
-    input#id(type='text' name='id')
-    br
-    label(for='cedula') Cedula: 
-    input#cedula(type='text' name='cedula')
-    br 
-    label(for='nombre') Nombre: 
-    input#nombre(type='text' name='nombre')
-    br
-    label(for='apellido') Apellido: 
-    input#apellido(type='text' name='apellido')
-    br
-    label(for='cargo') Cargo: 
-    input#cargo(type='text' name='cargo')
-    br
-    label(for='departamento') Departamento: 
-    input#departamento(type='text' name='departamento')
-    br
-    label(for='ingreso') Ingreso: 
-    input#ingreso(type='text' name='ingreso')
-    br
-    label(for='status') Status: 
-    input#status(type='text' name='status')
-    br
-    br
-    input.btn(type='submit' value='OK')       
+            h1 Nuevo Empleado 
+
+            br
+            br
+
+            form(action='/empleados/create' method='post')
+                .form-group
+                    label(for='id') ID: 
+                    input#id.form-control(type='text' name='id')
+                .form-group
+                    label(for='cedula') Cedula: 
+                    input#cedula.form-control(type='text' name='cedula')
+                .form-group 
+                    label(for='nombre') Nombre: 
+                    input#nombre.form-control(type='text' name='nombre')
+                .form-group
+                    label(for='apellido') Apellido: 
+                    input#apellido.form-control(type='text' name='apellido')
+                .form-group
+                    label(for='cargo') Cargo: 
+                    input#cargo.form-control(type='text' name='cargo')
+                .form-group
+                    label(for='departamento') Departamento: 
+                    input#departamento.form-control(type='text' name='departamento')
+                .form-group
+                    label(for='ingreso') Ingreso: 
+                    input#ingreso.form-control(type='text' name='ingreso')
+                .form-group
+                    label(for='status') Status: 
+                    input#status.form-control(type='text' name='status')
+                br
+                br
+                input.btn.btn-primary(type='submit' value='OK')       
