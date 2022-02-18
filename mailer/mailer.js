@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const sgTransport = require('nodemailer-sendgrid-transport');
 
 let mailConfig; 
-if (proccess.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
     const options = {
         auth: {
             api_key: proccess.env.SENDGRID_API_SECRET

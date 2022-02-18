@@ -9,7 +9,6 @@ const session = require('express-session');
 
 const jwt = require('jsonwebtoken');
 
-
 var indexRouter = require('./routes/index');
 var rrhhRouter = require('./routes/rrhh');
 var usuariosRouter = require('./routes/usuarios');
@@ -37,15 +36,9 @@ var mongoose = require('mongoose');
 
 main().catch(err => console.log(err));
 
-/*async function main() {
-  await mongoose.connect('mongodb://localhost:27017/test');
-}*/
-
 async function main() {
   await mongoose.connect(process.env.MONGO_URI);
 }
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -135,8 +128,6 @@ app.use('/api/usuarios', usuariosAPIRouter);
 
 app.use('/', indexRouter);
 app.use('/rrhh', loggedIn, rrhhRouter);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
