@@ -2,9 +2,9 @@ extends layout
 
 block content
   // Responsive navbar
-  nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
     .container.px-5
-      a.navbar-brand(href='#!') Concejo Municipal Mariño
+      a.navbar-brand(href='#!') Concejo de Mariño
       button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
@@ -50,7 +50,7 @@ block content
     .card.mb-3(style='max-width: 540px;')
     .row.g-0
         .col-md-4
-        img.img-fluid.rounded-start(src='/images/zorangel.jpeg' alt='...')
+        img.img-fluid.rounded-start.w-25(src='/images/zorangel.jpeg' alt='...')
         .col-md-8
         .card-body
             h5.card-title Concejal Zorangel Lista
@@ -61,10 +61,10 @@ block content
     .card.mb-3(style='max-width: 540px;')
     .row.g-0
         .col-md-4
-        img.img-fluid.rounded-start(src='/images/ignacio.jpeg' alt='...')
+        img.img-fluid.rounded.start.w-25(src='/images/ignacio.jpeg' alt='...')
         .col-md-8
         .card-body
-            h5.card-title Card title
+            h5.card-title Ignacio Suarez
             p.card-text
             | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
             p.card-text

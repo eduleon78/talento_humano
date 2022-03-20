@@ -11,7 +11,7 @@ const jwt = require('jsonwebtoken');
 
 var indexRouter = require('./routes/index');
 var rrhhRouter = require('./routes/rrhh');
-var acercadeRouter = require('./routes/acercade');
+var concejalesRouter = require('./routes/concejales');
 var usuariosRouter = require('./routes/usuarios');
 var tokenRouter = require('./routes/token');
 var empleadosRouter = require('./routes/empleados');
@@ -129,7 +129,7 @@ app.use('/api/usuarios', usuariosAPIRouter);
 
 app.use('/', indexRouter);
 app.use('/rrhh', loggedIn, rrhhRouter);
-app.use('/acercade', acercadeRouter);
+app.use('/concejales', concejalesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
