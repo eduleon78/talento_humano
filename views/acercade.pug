@@ -1,0 +1,101 @@
+extends layout
+
+block content
+  // Responsive navbar
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+    .container.px-5
+      a.navbar-brand(href='#!') Concejo Municipal Mariño
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+          li.nav-item
+            a.nav-link.active(aria-current='page' href='/') Inicio
+          li.nav-item
+            a.nav-link(href='/usuarios') Usuarios 
+          li.nav-item.dropdown
+            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='/login' data-bs-toggle='dropdown' aria-expanded='false')
+              | Registro   
+            ul.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+              li
+                a.dropdown-item(href='/empleados/create') Registrar Empleado  
+              li
+                a.dropdown-item(href='#!') Registrar Concejal
+              li
+                a.dropdown-item(href='#!') Registrar Obreros
+              li
+                a.dropdown-item(href='#!') Registrar Directivos
+          li.nav-item.dropdown
+            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='/login' data-bs-toggle='dropdown' aria-expanded='false')
+              | Listados    
+            ul.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+              li
+                a.dropdown-item(href='/empleados') Lista Empleados  
+              li
+                a.dropdown-item(href='#!') Lista Concejales 
+              li
+                a.dropdown-item(href='#!') Lista Obreros
+              li
+                a.dropdown-item(href='#!') Lista Directivos   
+          li.nav-item.dropdown
+            a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='/login' data-bs-toggle='dropdown' aria-expanded='false')
+              | Session  
+            ul.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+              li
+                a.dropdown-item(href='/login') Login 
+              li
+                a.dropdown-item(href='/logout') Logout 
+  // Page Content
+  .container.px-5 
+    .card.mb-3(style='max-width: 540px;')
+    .row.g-0
+        .col-md-4
+        img.img-fluid.rounded-start(src='/images/zorangel.jpeg' alt='...')
+        .col-md-8
+        .card-body
+            h5.card-title Concejal Zorangel Lista
+            p.card-text
+            | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+            p.card-text
+            small.text-muted Last updated 3 mins ago
+    .card.mb-3(style='max-width: 540px;')
+    .row.g-0
+        .col-md-4
+        img.img-fluid.rounded-start(src='/images/ignacio.jpeg' alt='...')
+        .col-md-8
+        .card-body
+            h5.card-title Card title
+            p.card-text
+            | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+            p.card-text
+            small.text-muted Last updated 3 mins ago
+    .card.mb-3(style='max-width: 540px;')
+    .row.g-0
+        .col-md-4
+        img.img-fluid.rounded-start(src='...' alt='...')
+        .col-md-8
+        .card-body
+            h5.card-title Card title
+            p.card-text
+            | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+            p.card-text
+            small.text-muted Last updated 3 mins ago
+    .card.mb-3(style='max-width: 540px;')
+    .row.g-0
+        .col-md-4
+        img.img-fluid.rounded-start(src='...' alt='...')
+        .col-md-8
+        .card-body
+            h5.card-title Card title
+            p.card-text
+            | This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+            p.card-text
+            small.text-muted Last updated 3 mins ago
+  // Footer
+  footer.py-5.bg-dark
+    .container.px-4.px-lg-5
+      p.m-0.text-center.text-white Copyright &copy; leonStudios 2022
+  // Bootstrap core JS
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
+  // Core theme JS
+  script(src='/js/scripts.js')
