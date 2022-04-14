@@ -48,7 +48,7 @@ exports.empleado_update_post = function(req, res){
             console.log(err);
             res.render('empleados/update', {errors: err.errors, empleado})
         }else{
-            res.redirect('empleados');
+            res.redirect('/empleados');
             return;
         }
 

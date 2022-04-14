@@ -30,11 +30,10 @@ app.use(session({
   store: store,
   saveUninitialized: true,
   resave: 'true',
-  secret: 'talento_humano_!!!***!"-!"-!"-!"-!"-!"-!-123123'
+  secret: 'talento_humano_!!!***!"-!"-!"-!"-!"-!"-123123'
 }));
 
 var mongoose = require('mongoose');
-
 main().catch(err => console.log(err));
 
 async function main() {
