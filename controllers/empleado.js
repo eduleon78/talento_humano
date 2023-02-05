@@ -1,9 +1,9 @@
-const empleado = require('../models/empleado');
+//const empleado = require('../models/empleado');
 var Empleado = require('../models/empleado');
 
 exports.empleado_list = function(req, res){
     Empleado.allEmples().exec((err, emples) => {
-        res.render('empleados/index', { emples});
+        res.render('empleados/index', {emples});
     });    
 }
 
@@ -48,7 +48,7 @@ exports.empleado_update_post = function(req, res){
             console.log(err);
             res.render('empleados/update', {errors: err.errors, empleado})
         }else{
-            res.redirect('/empleados');
+            res.redirect('empleados');
             return;
         }
 

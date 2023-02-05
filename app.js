@@ -6,11 +6,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const passport = require('./config/passport');
 const session = require('express-session');
-
+const MongoDBStore = require('connect-mongodb-session')(session);
 const jwt = require('jsonwebtoken');
 
 var indexRouter = require('./routes/index');
 var rrhhRouter = require('./routes/rrhh');
+var construccionRouter = require('./routes/construccion');
 var concejalesRouter = require('./routes/concejales');
 var usuariosRouter = require('./routes/usuarios');
 var tokenRouter = require('./routes/token');
@@ -22,18 +23,33 @@ var authAPIRouter = require('./routes/api/auth');
 const Usuario = require('./models/usuario');
 const Token = require('./models/token');
 
-const store = new session.MemoryStore;
+let store;
+if (process.env.NODE_ENV === 'development'){
+  store = new session.MemoryStore;
+}else{
+  store = new MongoDBStore({
+    uri: process.env.MONGO_URI,
+    collection: 'sessions' 
+  });
+  store.on('error', function(error) {
+    assert.ifError(error);
+    assert.ok(false);
+  });
+}
 
-var app = express();
+let app = express();
+app.set('secretKey', 'jwt_pwd_!!223344');
 app.use(session({
   cookie: { maxAge: 240 * 60 * 60 * 1000 },
   store: store,
   saveUninitialized: true,
   resave: 'true',
-  secret: 'talento_humano_!!!***!"-!"-!"-!"-!"-!"-123123'
+  secret: 'talento_humano_!!!***!"-!"-!"-!"-!"-!"-!-123123'
 }));
 
 var mongoose = require('mongoose');
+const { assert } = require('console');
+
 main().catch(err => console.log(err));
 
 async function main() {
@@ -127,6 +143,7 @@ app.use('/api/empleados', validarUsuario, empleadosAPIRouter);
 app.use('/api/usuarios', usuariosAPIRouter);
 
 app.use('/', indexRouter);
+app.use('/construccion', construccionRouter);
 app.use('/rrhh', loggedIn, rrhhRouter);
 app.use('/concejales', concejalesRouter);
 
@@ -156,7 +173,7 @@ function loggedIn(req, res, next) {
 };
 
 function validarUsuario(req, res, next) {
-  jwt.verify(req.headers['x-accesee-token'], req.app.get('secreteKey'), function(err, decoded) {
+  jwt.verify(req.headers['x-access-token'], req.app.get('secreteKey'), function(err, decoded) {
     if (err) {
       res.json({status: "error", message: err.message, data: null});
     }else{

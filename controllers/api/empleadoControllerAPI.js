@@ -9,7 +9,7 @@ exports.empleado_list = function (req, res) {
 };
   
 exports.empleado_create = function (req, res) {
-  let emple = Empleado.createIntance(req.body.code, req.body.cedula, req.body.nombre, req.body.apellido,
+  let emple = Empleado.createInstance(req.body.code, req.body.cedula, req.body.nombre, req.body.apellido,
     req.body.cargo, req.body.departamento, req.body.ingreso, req.body.status);
 
   Empleado.add(emple, function(err, newEmple){

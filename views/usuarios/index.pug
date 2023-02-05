@@ -1,12 +1,12 @@
 extends ../layout
 
 block content
-  a.btn.btn-success.btn-sm.mt-3.ml-3(href='/usuarios/create') Nuevo Usuario
+  a.btn.btn-success(href='/usuarios/create') Nuevo Usuario
 
   br
   br
 
-  a.btn.btn-dark.btn-sm.ml-3(href='/rrhh') Inicio  
+  a.btn.btn-dark(href='/rrhh') Inicio  
 
   br
   br
@@ -33,5 +33,5 @@ block content
           td
             form.inline(method='post' action='usuarios/' + usuario.id + '/delete')
                 input(type='hidden' name='id' value= usuario.id)
-                button.link-button.btn-danger.btn-sm(type='submit' name='submit_param' value='submit_value' class='btn')
+                button.link-button.btn-danger(type='submit' name='submit_param' value='submit_value' class='btn')
                     = 'Eliminar' 

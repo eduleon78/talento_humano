@@ -28,7 +28,7 @@ var usuarioSchema = new Schema({
         lowercase: true,
         unique: true,
         validate: [validateEmail, 'Por favor ingrese un email valido'],
-        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*[\.\w{2,3}]+$/]
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/]
     },
     password: {
         type: String,
@@ -82,7 +82,6 @@ usuarioSchema.methods.resetPassword = function(cb) {
     });
 }
 
-
 usuarioSchema.methods.enviar_email_bienvenida = function(cb) {
     const token = new Token({_userId: this.id, token: crypto.randomBytes(16).toString('hex')});
     const email_destination = this.email;
@@ -93,12 +92,12 @@ usuarioSchema.methods.enviar_email_bienvenida = function(cb) {
             from: 'no-reply@talentohumano.com',
             to: email_destination, 
             subject: 'verificacion de cuenta',
-            text: `hola, Bienvenido.\n\n` + `Por favor, para VERIFICAR tu cuenta haga click en este link: \n` + `http://localhost:5000/token/confirmation/${token.token}` + `.\n`
+            text: 'hola,\n\n' + 'Por favor, para verificar tu cuenta haga click en este link: \n' + 'http://localhost:5000' + '\/token/confirmation\/' + token.token + '\n'
         };
         mailer.sendMail(mailOptions, function (err) {
-            if (err) { return console.log(err.message); }
+            if (err) console.log(err); 
 
-            console.log('Se ha enviado un email de bienvenida a: ' + email_destination + '.')
+            console.log('Se ha enviado un email de bienvenida a: ' + email_destination + ':');
         });
     });
 }
