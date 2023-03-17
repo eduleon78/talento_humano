@@ -48,13 +48,13 @@ app.use(session({
 }));
 
 var mongoose = require('mongoose');
-const { assert } = require('console');
-
-main().catch(err => console.log(err));
-
-async function main() {
-  await mongoose.connect(process.env.MONGO_URI);
-}
+var mongoDB = process.env.MONGO_URI;
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.Promise = global.Promise;
+mongoose.connection.on(
+  "error",
+  console.error.bind(console, "MongoDB conection error: ")
+);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
